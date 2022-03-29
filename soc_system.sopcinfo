@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="soc_system" kind="soc_system" version="1.0" fabric="QSYS">
  <!-- Format version 21.1 842 (Future versions may contain additional information.) -->
- <!-- 2022.03.29.16:57:56 -->
+ <!-- 2022.03.29.17:07:53 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1648587476</value>
+  <value>1648588072</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -332,9 +332,9 @@ parameters are a RESULT of the module parameters. -->
    </port>
    <clockDomainMember>
     <isBridge>false</isBridge>
-    <moduleName>river_raid_0</moduleName>
+    <moduleName>river_raid</moduleName>
     <slaveName>clock</slaveName>
-    <name>river_raid_0.clock</name>
+    <name>river_raid.clock</name>
    </clockDomainMember>
    <clockDomainMember>
     <isBridge>false</isBridge>
@@ -16858,9 +16858,9 @@ parameters are a RESULT of the module parameters. -->
    </port>
    <memoryBlock>
     <isBridge>false</isBridge>
-    <moduleName>river_raid_0</moduleName>
+    <moduleName>river_raid</moduleName>
     <slaveName>avalon_slave_0</slaveName>
-    <name>river_raid_0.avalon_slave_0</name>
+    <name>river_raid.avalon_slave_0</name>
     <baseAddress>0</baseAddress>
     <span>8</span>
    </memoryBlock>
@@ -43597,9 +43597,9 @@ parameters are a RESULT of the module parameters. -->
    </port>
    <memoryBlock>
     <isBridge>false</isBridge>
-    <moduleName>river_raid_0</moduleName>
+    <moduleName>river_raid</moduleName>
     <slaveName>avalon_slave_0</slaveName>
-    <name>river_raid_0.avalon_slave_0</name>
+    <name>river_raid.avalon_slave_0</name>
     <baseAddress>0</baseAddress>
     <span>8</span>
    </memoryBlock>
@@ -45124,9 +45124,9 @@ parameters are a RESULT of the module parameters. -->
    </memoryBlock>
    <memoryBlock>
     <isBridge>false</isBridge>
-    <moduleName>river_raid_0</moduleName>
+    <moduleName>river_raid</moduleName>
     <slaveName>avalon_slave_0</slaveName>
-    <name>river_raid_0.avalon_slave_0</name>
+    <name>river_raid.avalon_slave_0</name>
     <baseAddress>4280287232</baseAddress>
     <span>8</span>
    </memoryBlock>
@@ -45955,9 +45955,9 @@ parameters are a RESULT of the module parameters. -->
    </memoryBlock>
    <memoryBlock>
     <isBridge>false</isBridge>
-    <moduleName>river_raid_0</moduleName>
+    <moduleName>river_raid</moduleName>
     <slaveName>avalon_slave_0</slaveName>
-    <name>river_raid_0.avalon_slave_0</name>
+    <name>river_raid.avalon_slave_0</name>
     <baseAddress>4280287232</baseAddress>
     <span>8</span>
    </memoryBlock>
@@ -73556,11 +73556,7 @@ parameters are a RESULT of the module parameters. -->
    </port>
   </interface>
  </module>
- <module
-   name="river_raid_0"
-   kind="river_raid"
-   version="1.0"
-   path="river_raid_0">
+ <module name="river_raid" kind="river_raid" version="1.0" path="river_raid">
   <!-- Describes a single module. Module parameters are
 the requested settings for a module instance. -->
   <parameter name="deviceFamily">
@@ -84243,11 +84239,11 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>axi_slave0</endConnectionPoint>
  </connection>
  <connection
-   name="hps_0_bridges.h2f_lw/river_raid_0.avalon_slave_0"
+   name="hps_0_bridges.h2f_lw/river_raid.avalon_slave_0"
    kind="avalon"
    version="21.1"
    start="hps_0_bridges.h2f_lw"
-   end="river_raid_0.avalon_slave_0">
+   end="river_raid.avalon_slave_0">
   <parameter name="arbitrationPriority">
    <type>int</type>
    <value>1</value>
@@ -84290,15 +84286,15 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <startModule>hps_0_bridges</startModule>
   <startConnectionPoint>h2f_lw</startConnectionPoint>
-  <endModule>river_raid_0</endModule>
+  <endModule>river_raid</endModule>
   <endConnectionPoint>avalon_slave_0</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk/river_raid_0.clock"
+   name="clk_0.clk/river_raid.clock"
    kind="clock"
    version="21.1"
    start="clk_0.clk"
-   end="river_raid_0.clock">
+   end="river_raid.clock">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
    <value>UNKNOWN</value>
@@ -84317,7 +84313,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <startModule>clk_0</startModule>
   <startConnectionPoint>clk</startConnectionPoint>
-  <endModule>river_raid_0</endModule>
+  <endModule>river_raid</endModule>
   <endConnectionPoint>clock</endConnectionPoint>
  </connection>
  <connection
@@ -84402,11 +84398,11 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>h2f_lw_axi_clock</endConnectionPoint>
  </connection>
  <connection
-   name="clk_0.clk_reset/river_raid_0.reset"
+   name="clk_0.clk_reset/river_raid.reset"
    kind="reset"
    version="21.1"
    start="clk_0.clk_reset"
-   end="river_raid_0.reset">
+   end="river_raid.reset">
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
    <value>UNKNOWN</value>
@@ -84425,7 +84421,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <startModule>clk_0</startModule>
   <startConnectionPoint>clk_reset</startConnectionPoint>
-  <endModule>river_raid_0</endModule>
+  <endModule>river_raid</endModule>
   <endConnectionPoint>reset</endConnectionPoint>
  </connection>
  <plugin>

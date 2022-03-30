@@ -5,6 +5,10 @@
  * Columbia University
  */
 
+// verilator lint_off CASEINCOMPLETE
+// verilator lint_off WIDTH
+
+
 module river_raid(  input  logic        clk,
                     input   logic 	    reset,
                     input   logic [7:0] writedata,
@@ -12,9 +16,15 @@ module river_raid(  input  logic        clk,
                     input 		        chipselect,
                     input   logic [2:0] address,
 
+                    // * For SDL simulation only!!!!
+                    output logic [10:0] sdl_x,
+                    output logic [9:0] sdl_y,
+                    // * For SDL simulation only!!!!
+
                     output  logic [7:0] VGA_R, VGA_G, VGA_B,
                     output  logic 	    VGA_CLK, VGA_HS, VGA_VS,
                                         VGA_BLANK_n,
+                    
                     output  logic 	    VGA_SYNC_n);
 
     logic [10:0]	hcount;
@@ -54,7 +64,13 @@ module river_raid(  input  logic        clk,
 
 
     always_comb begin
-        {VGA_R, VGA_G, VGA_B} = {8'h0, 8'h0, 8'h0};
+        {VGA_R, VGA_G, VGA_B} = {8'h0, 8'h0, 8'h00};
+
+        // For simulation only !!! 
+        sdl_x = hcount;
+        sdl_y = vcount;
+        // For simulation only !!! 
+
         dx = 11'd0;
         dy = 11'd0;
         h_radius = 11'd0;

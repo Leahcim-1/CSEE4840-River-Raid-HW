@@ -1,4 +1,6 @@
 soc_system/*
 /soc_system/
 .qsys_edit
+/obj_dir/
+/.vscode/
 

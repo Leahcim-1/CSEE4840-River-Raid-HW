@@ -76,6 +76,10 @@ int main(int argc, char* argv[]) {
     uint64_t start_ticks = SDL_GetPerformanceCounter();
     uint64_t frame_count = 0;
 
+    int counter = 0;
+    int period = 100000;
+    int addr_counter = 0;
+
     // main loop
     while (1) {
         // cycle the clock
@@ -83,6 +87,27 @@ int main(int argc, char* argv[]) {
         top->eval();
         top->clk = 1;
         top->eval();
+        counter++;
+
+        if (counter == period - 1) {
+            top->chipselect = 1;
+            top->write = 1;
+            top->eval();
+            
+        } else if (counter == period) {
+            top->chipselect = 1;
+            top->write = 1;
+            top->address = addr_counter++;
+            top->writedata = 0xf0;
+            top->eval();    
+            addr_counter = addr_counter >= 7 ? 0 : addr_counter;
+            counter = 0;
+        } 
+        else {
+            top->chipselect = 0;
+            top->write = 0;
+            top->eval();
+        }
 
         // update pixel if not in blanking interval
         if (top->VGA_BLANK_n) {
